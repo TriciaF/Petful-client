@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './index.css';
 // import {REACT_APP_API_BASE_URL} from './config.js';
+import {Pet} from './components/Pet.js';
+
 
 class Dashboard extends Component {
   constructor(props) {
@@ -27,40 +29,8 @@ class Dashboard extends Component {
     }
   }
 
-  render() {
-    const renderCat =  
-            <div className='cat'>
-            <header className='cat-header'>
-              <span>{this.state.catToAdopt.name}</span><br></br>
-              <img src={this.state.catToAdopt.imageURL} alt={this.state.catToAdopt.imageDescription} height='300' width='300'/>
-            </header>
-            <main>
-             <dl>
-               <dt>{this.state.catToAdopt.imageDescription}</dt>
-               <dt>{this.state.catToAdopt.sex}</dt>
-               <dt>{this.state.catToAdopt.age}</dt>
-               <dt>{this.state.catToAdopt.breed}</dt>
-               <dt>{this.state.catToAdopt.story}</dt>
-            </dl>
-            </main>
-            </div>;
 
-    const renderDog =
-    <div className='dog'>
-    <header className='dog-header'>
-      <span>{this.state.dogToAdopt.name}</span><br></br>
-      <img src={this.state.dogToAdopt.imageURL} alt={this.state.dogToAdopt.imageDescription} height='300' width='300'/>
-    </header>
-    <main>
-     <dl>
-       <dt>{this.state.dogToAdopt.imageDescription}</dt>
-       <dt>{this.state.dogToAdopt.sex}</dt>
-       <dt>{this.state.dogToAdopt.age}</dt>
-       <dt>{this.state.dogToAdopt.breed}</dt>
-       <dt>{this.state.dogToAdopt.story}</dt>
-    </dl>
-    </main>
-    </div>; 
+  render() {
 
     return (
       <div className='dashboard'>
@@ -71,12 +41,8 @@ class Dashboard extends Component {
          Click the ADOPT button to adopt the next pet available. 
         </p>
         <div className='adoption-section'>
-        <section className='cat-section'>
-        {renderCat}
-        </section>
-        <section className='dog-section'>
-        {renderDog}
-        </section>
+        <Pet petToAdopt={this.state.catToAdopt}/>
+        <Pet petToAdopt={this.state.dogToAdopt}/>
         </div>
       </div>
     );
