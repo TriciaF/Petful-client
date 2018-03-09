@@ -29,6 +29,10 @@ class Dashboard extends Component {
     }
   }
 
+  onAdoptPet(){
+    return console.log('Adopt Me')
+  }
+
 
   render() {
 
@@ -41,8 +45,8 @@ class Dashboard extends Component {
          Click the ADOPT button to adopt the next pet available. 
         </p>
         <div className='adoption-section'>
-        <Pet petToAdopt={this.state.catToAdopt}/>
-        <Pet petToAdopt={this.state.dogToAdopt}/>
+        <Pet petToAdopt={this.state.catToAdopt} onAdoptPet={this.onAdoptPet}/>
+        <Pet petToAdopt={this.state.dogToAdopt} onAdoptPet={this.onAdoptPet}/>
         </div>
       </div>
     );
