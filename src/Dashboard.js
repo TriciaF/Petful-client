@@ -29,9 +29,9 @@ class Dashboard extends Component {
 
   render() {
     const renderCat =  
-            <div>
-            <header className='cat'>
-              <span>{this.state.catToAdopt.name}</span>
+            <div className='cat'>
+            <header className='cat-header'>
+              <span>{this.state.catToAdopt.name}</span><br></br>
               <img src={this.state.catToAdopt.imageURL} alt={this.state.catToAdopt.imageDescription} height='300' width='300'/>
             </header>
             <main>
@@ -42,12 +42,13 @@ class Dashboard extends Component {
                <dt>{this.state.catToAdopt.breed}</dt>
                <dt>{this.state.catToAdopt.story}</dt>
             </dl>
-            </main>;
+            </main>
             </div>;
+
     const renderDog =
-    <div>
-    <header className='cat'>
-      <span>{this.state.dogToAdopt.name}</span>
+    <div className='dog'>
+    <header className='dog-header'>
+      <span>{this.state.dogToAdopt.name}</span><br></br>
       <img src={this.state.dogToAdopt.imageURL} alt={this.state.dogToAdopt.imageDescription} height='300' width='300'/>
     </header>
     <main>
@@ -58,29 +59,25 @@ class Dashboard extends Component {
        <dt>{this.state.dogToAdopt.breed}</dt>
        <dt>{this.state.dogToAdopt.story}</dt>
     </dl>
-    </main>;
+    </main>
     </div>; 
 
     return (
       <div className='dashboard'>
-       <div>
         <header className="app-header">
           <h1 className="app-title">Animal Shelter Adoption</h1>
         </header>
         <p className="app-intro">
          Click the ADOPT button to adopt the next pet available. 
         </p>
-      </div>
-      <div>
+        <div className='adoption-section'>
         <section className='cat-section'>
         {renderCat}
         </section>
-      </div>
-      <div>
         <section className='dog-section'>
         {renderDog}
         </section>
-      </div>
+        </div>
       </div>
     );
   }
