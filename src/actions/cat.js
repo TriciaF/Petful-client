@@ -10,15 +10,15 @@ export const initiateFetchCat = (loading) => ({
 export const FETCH_CAT_SUCCESS = 'FETCH_CAT_SUCCESS';
 export const fetchCatSuccess = (data) => ({
   type: FETCH_CAT_SUCCESS,
-  error: false,
+  catError: false,
   loading: false,
   data: data 
 });
 
 export const FETCH_CAT_ERROR = 'FETCH_CAT_ERROR';
-export const fetchCatError = (error,loading) => ({
+export const fetchCatError = (catError,loading) => ({
   type: FETCH_CAT_ERROR,
-  error: error,
+  catError: catError,
   loading: false
 });
 
@@ -61,7 +61,7 @@ export const adoptCat = () => dispatch => {
   })
   .then(res => {
     if(!res.ok) {
-      return Promise.rejext(res.statusText);
+      return Promise.reject(res.statusText);
     }
       return res.json();
   })

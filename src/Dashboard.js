@@ -14,6 +14,7 @@ componentDidMount() {
 
   render() {
 
+
     return (
       <div className='dashboard'>
         <header className="app-header">
@@ -23,8 +24,8 @@ componentDidMount() {
          Click the ADOPT button to adopt the next pet available. 
         </p>
         <div className='adoption-section'>
-        <Pet petToAdopt={this.props.catToAdopt} onAdoptPet={()=>this.props.dispatch(adoptCat())}/>
-        <Pet petToAdopt={this.props.dogToAdopt} onAdoptPet={()=>this.props.dispatch(adoptDog())}/>
+        <Pet petToAdopt={this.props.catToAdopt} onAdoptPet={()=>this.props.dispatch(adoptCat())} error={this.props.catError}/>
+        <Pet petToAdopt={this.props.dogToAdopt} onAdoptPet={()=>this.props.dispatch(adoptDog())} error={this.props.dogError}/>
         </div>
       </div>
     );
@@ -33,7 +34,9 @@ componentDidMount() {
 
 const mapStateToProps = state => ({
   catToAdopt: state.cat.data,
-  dogToAdopt: state.dog.data
+  dogToAdopt: state.dog.data,
+  dogError: state.dog.dogError,
+  catError: state.cat.catError
 });
 
 export default connect(mapStateToProps)(Dashboard); 

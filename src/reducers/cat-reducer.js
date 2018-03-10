@@ -2,7 +2,7 @@ import { INITIATE_FETCH_CAT, FETCH_CAT_SUCCESS, FETCH_CAT_ERROR } from '../actio
 
 const initialState = {
   loading: false,
-  error: null,
+  catError: null,
   data: null
 };
 
@@ -15,13 +15,13 @@ export default function catReducer(state = initialState, action) {
   } else if(action.type === FETCH_CAT_SUCCESS) {
       return Object.assign({}, state, {
         loading: false,
-        error: null,
+        catError: null,
         data: action.data 
       });
   } else if(action.type === FETCH_CAT_ERROR) {
       return Object.assign({}, state, {
         loading: false,
-        error: action.error
+        catError: action.catError
       });
   } else
       return state;

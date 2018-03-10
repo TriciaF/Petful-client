@@ -9,15 +9,15 @@ export const initiateFetchDog = (loading) => ({
 export const FETCH_DOG_SUCCESS = 'FETCH_DOG_SUCCESS';
 export const fetchDogSuccess = (data) => ({
   type: FETCH_DOG_SUCCESS,
-  error: false,
+  dogError: false,
   loading: false,
   data: data
 });
 
 export const FETCH_DOG_ERROR = 'FETCH_DOG_ERROR';
-export const fetchDogError = (error,loading)=> ({
+export const fetchDogError = (dogError,loading)=> ({
   type: FETCH_DOG_ERROR,
-  error: error,
+  dogError: dogError,
   loading: false
 });
 
